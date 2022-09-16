@@ -5,10 +5,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Getter
 @Setter
@@ -17,12 +14,17 @@ import javax.persistence.Table;
 public class City {
 
     @Id
-    @GeneratedValue
+    @Column(name = "ID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Column(name = "name")
     private  String name;
+    @Column(name = "countrycode")
     private  String countryCode;
+    @Column(name = "district")
     private  String district;
+    @Column(name = "population")
     private  int population;
 
     public City(int id, String name, String countryCode, String district, int population) {
